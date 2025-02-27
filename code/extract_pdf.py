@@ -168,7 +168,8 @@ if __name__ == "__main__":
                        help='搜索关键词，默认为"machine learning"')
     parser.add_argument('--num', type=int, default=5,
                        help='下载论文数量，默认为5')
-    parser.add_argument('--path', type=str, default='/home/zhangxinying/vscode/test',)
+    # default这里填写论文下载和🧐文件存储的位置
+    parser.add_argument('--path', type=str, default='',)
     args = parser.parse_args()
 
 
@@ -187,7 +188,7 @@ if __name__ == "__main__":
     filenames = download_pdf(args.keyword, args.num)
     print("正在解析……")
     # 读取prompt.txt中的内容
-    prompt_content = open("/home/zhangxinying/vscode/test/arxive/code/scientific_papers_prompt.txt", encoding='utf-8').read()
+    prompt_content = open("./code/scientific_papers_prompt.txt", encoding='utf-8').read()
     # 提取pdf文件
     extract_pdfs(filenames, prompt_content)
 
